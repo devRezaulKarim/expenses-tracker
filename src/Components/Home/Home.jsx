@@ -8,7 +8,6 @@ import { ExpenseContext } from "../../Utilities/Context";
 export default function Home() {
   const { todaysExpenses, lastSevenDaysExpenses, thisMonthsExpenses } =
     useContext(ExpenseContext);
-  console.log(todaysExpenses);
   return (
     <div className="grid grid-cols-1	lg:grid-cols-2	gap-8">
       <GetInput />

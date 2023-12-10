@@ -1,12 +1,16 @@
 /* eslint-disable react/prop-types */
-import { createContext } from "react";
-import { initialValue } from "./ManageLocalStorage";
+import { createContext, useEffect } from "react";
+import { getFromLocal, setToLocal } from "./ManageLocalStorage";
 import Reducer from "./Reducer";
 import { useReducer } from "react";
 
-export const ExpenseContext = createContext(initialValue);
+export const ExpenseContext = createContext(getFromLocal());
 export const ExpenseContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(Reducer, initialValue);
+  const [state, dispatch] = useReducer(Reducer, getFromLocal());
+
+  useEffect(() => {
+    setToLocal(state);
+  }, [state]);
 
   const value = {
     allExpenses: state.allExpenses,

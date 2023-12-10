@@ -48,7 +48,6 @@ export default function ExpensesTable({ dataFor, expenses }) {
 }
 
 const TableRow = ({ entry }) => {
-  console.log(entry);
   return (
     <tr className="bg-lime-100	border border-black">
       <td className="text-center">{entry.category}:</td>
