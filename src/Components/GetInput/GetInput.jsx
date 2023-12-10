@@ -21,7 +21,15 @@ export default function GetInput() {
       month: new Date().getMonth() + 1,
     };
 
-    dispatch({ type: "ADD_EXPENSE", payload: GeneratedPayload });
+    if (!amount.current.value.trim()) {
+      alert("You can't make an empty entry");
+    } else if (category.current.value === "none") {
+      alert("You have to choose a category");
+    } else {
+      dispatch({ type: "ADD_EXPENSE", payload: GeneratedPayload });
+      amount.current.value = "";
+      category.current.value = "none";
+    }
   };
 
   return (

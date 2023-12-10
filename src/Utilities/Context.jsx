@@ -9,7 +9,10 @@ export const ExpenseContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(Reducer, initialValue);
 
   const value = {
-    expenses: state.expenses,
+    allExpenses: state.allExpenses,
+    todaysExpenses: state.todaysExpenses,
+    lastSevenDaysExpenses: state.lastSevenDaysExpenses,
+    thisMonthsExpenses: state.thisMonthsExpenses,
     dispatch,
   };
   return (

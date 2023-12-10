@@ -1,3 +1,6 @@
 export const initialValue = {
-  expenses: [],
+  allExpenses: [],
+  todaysExpenses: [],
+  lastSevenDaysExpenses: [],
+  thisMonthsExpenses: [],
 };

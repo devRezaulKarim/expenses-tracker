@@ -1,11 +1,19 @@
 export default function Reducer(state, action) {
   const { type, payload } = action;
-  const { expenses } = state;
+  const {
+    allExpenses,
+    todaysExpenses,
+    lastSevenDaysExpenses,
+    thisMonthsExpenses,
+  } = state;
   switch (type) {
     case "ADD_EXPENSE":
       return {
         ...state,
-        expenses: [payload, ...expenses],
+        allExpenses: [payload, ...allExpenses],
+        todaysExpenses: [payload, ...todaysExpenses],
+        lastSevenDaysExpenses: [payload, ...lastSevenDaysExpenses],
+        thisMonthsExpenses: [payload, ...thisMonthsExpenses],
       };
 
     default:
