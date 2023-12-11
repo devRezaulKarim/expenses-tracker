@@ -18,7 +18,7 @@ export default function GetInput() {
         String(new Date().getMonth() + 1).padStart(2, "0"),
         new Date().getFullYear(),
       ].join("-"),
-      month: new Date().getMonth() + 1,
+      month: String(new Date().getMonth() + 1).padStart(2, "0"),
     };
 
     if (!amount.current.value.trim()) {
