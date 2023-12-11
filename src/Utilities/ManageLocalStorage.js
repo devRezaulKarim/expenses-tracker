@@ -6,9 +6,6 @@ const initialValue = {
   thisMonthsExpenses: [],
 };
 
-const now = new Date();
-
-// const lastWeekDate = new Date(new Date().getTime() - 7 * 24 * 60 * 60 * 1000);
 const today = [
   String(new Date().getDate()).padStart(2, "0"),
   String(new Date().getMonth() + 1).padStart(2, "0"),
@@ -22,9 +19,6 @@ const lastWeekDate = [
 ].join("-");
 
 const month = String(new Date().getMonth() + 1).padStart(2, "0");
-
-// console.log("04-12-2023" === lastWeekDate);
-// console.log(month);
 
 export const getFromLocal = () => {
   const savedJSONdata = localStorage.getItem("entries");

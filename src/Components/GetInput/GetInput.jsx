@@ -7,6 +7,22 @@ export default function GetInput() {
   const amount = useRef();
   const category = useRef();
 
+  const categories = [
+    "Child Care",
+    "Clothing",
+    "Food",
+    "Health Care",
+    "Housing",
+    "Lifestyle",
+    "Personal",
+    "Toiletries",
+    "Transportation",
+    "Utilities",
+    "Other",
+  ];
+
+  console.log(categories);
+
   //submit handler
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,6 +39,8 @@ export default function GetInput() {
 
     if (!amount.current.value.trim()) {
       alert("You can't make an empty entry");
+    } else if (+amount.current.value < 1) {
+      alert("You can't make an entry with 0 amount");
     } else if (category.current.value === "none") {
       alert("You have to choose a category");
     } else {
@@ -53,9 +71,14 @@ export default function GetInput() {
             <option value="none" selected disabled hidden>
               Select an Option
             </option>
-            <option value="Food">Food</option>
+            {categories.map((category, i) => (
+              <option key={i} value={category}>
+                {category}
+              </option>
+            ))}
+            {/* <option value="Food">Food</option>
             <option value="Travel">Travel</option>
-            <option value="Life Style">Life Style</option>
+            <option value="Life Style">Life Style</option> */}
           </select>
           <input className="bg-red-500 w-full" type="submit" value="Done" />
         </div>
