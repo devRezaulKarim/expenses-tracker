@@ -16,64 +16,53 @@ export default function Details() {
 
   console.log(expenses);
 
-  const classes = `px-10 rounded`;
+  const classes = "px-10 pb-3 pt-1 rounded-t-lg";
+  const activeClasses = "bg-rose-100";
+  const thClasses = "border border-rose-600 border-collapse";
   return (
     <div className="flex items-center justify-center min-h-screen ">
       <div className="bg-red-200 w-8/12 min-h-[500px] pt-5 rounded-xl p-5">
         <div className="text-3xl font-semibold text-center mb-5">Details</div>
-        <div className="flex justify-evenly text-lg font-semibold mb-3">
+        <div className="flex justify-evenly text-lg font-semibold">
           <Link
             to="/today"
-            className={`${
-              location === "/today" && "text-white bg-rose-600"
-            } ${classes}`}
+            className={`${location === "/today" && activeClasses} ${classes}`}
           >
             Today
           </Link>
           <Link
             to="/week"
-            className={`${
-              location === "/week" && "text-white bg-rose-600"
-            } ${classes}`}
+            className={`${location === "/week" && activeClasses} ${classes}`}
           >
             This Week
           </Link>
           <Link
             to="/month"
-            className={`${
-              location === "/month" && "text-white bg-rose-600"
-            } ${classes}`}
+            className={`${location === "/month" && activeClasses} ${classes}`}
           >
             This Month
           </Link>
         </div>
 
-        <table className="w-full">
-          <thead>
-            <tr className="bg-rose-100 border border-blue-500">
-              <th className="border border-rose-600 border-collapse w-[10%]">
-                No
-              </th>
-              <th className="border border-rose-600 border-collapse w-[15%]">
-                Category
-              </th>
-              <th className="border border-rose-600 border-collapse ">Note</th>
-              <th className="border border-rose-600 border-collapse w-[15%]">
-                Date
-              </th>
-              <th className="border border-rose-600 border-collapse w-[15%]">
-                Time
-              </th>
-              <th className="border border-rose-600 border-collapse w-[15%]">
-                Amount
-              </th>
-            </tr>
-          </thead>
-        </table>
-        <div>
-          {expenses.map((expense, i) => (
-            <DetailsTable key={i} expense={expense} />
-          ))}
+        <div className="p-2 bg-rose-100 rounded">
+          <table className="w-full">
+            <thead>
+              <tr className="bg-rose-100 border border-blue-500">
+                <th className={`${thClasses} w-[10%]`}>No</th>
+                <th className={`${thClasses} w-[15%]`}>Category</th>
+                <th className={thClasses}>Note</th>
+                <th className={`${thClasses} w-[15%]`}>Date</th>
+                <th className={`${thClasses} w-[15%]`}>Time</th>
+                <th className={`${thClasses} w-[10%]`}>Amount</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {expenses.map((expense, i) => (
+                <DetailsTable key={i} no={i} expense={expense} />
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
