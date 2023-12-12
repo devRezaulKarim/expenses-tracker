@@ -9,13 +9,19 @@ export default function Home() {
   return (
     <div className="grid grid-cols-1	lg:grid-cols-2	gap-8">
       <GetInput />
-      <ExpensesTable dataFor="Today&#39;s Expenses" expenses={todaysExpenses} />
+      <ExpensesTable
+        dataFor="Today&#39;s Expenses"
+        route="today"
+        expenses={todaysExpenses}
+      />
       <ExpensesTable
         dataFor="Last Seven day&#39;s Expenses"
+        route="week"
         expenses={lastSevenDaysExpenses}
       />
       <ExpensesTable
         dataFor="This Month&#39;s Expenses"
+        route="month"
         expenses={thisMonthsExpenses}
       />
     </div>

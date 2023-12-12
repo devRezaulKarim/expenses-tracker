@@ -59,8 +59,8 @@ export default function GetInput() {
           <input
             id="amount"
             ref={amount}
-            className="w-3/4 px-2"
-            type="text"
+            className="w-3/4 px-2 rounded"
+            type="number"
             placeholder="Enter amount"
           />
         </div>
@@ -69,7 +69,7 @@ export default function GetInput() {
           <select
             defaultValue="none"
             ref={category}
-            className=""
+            className="rounded"
             name="name"
             id=""
           >
@@ -82,7 +82,11 @@ export default function GetInput() {
               </option>
             ))}
           </select>
-          <input className="bg-red-500 w-full" type="submit" value="Done" />
+          <input
+            className="bg-red-500 text-white rounded w-full"
+            type="submit"
+            value="Done"
+          />
         </div>
       </form>
     </div>
