@@ -8,26 +8,73 @@ export default function Details() {
     useContext(ExpenseContext);
   const location = useLocation().pathname;
   const expenses =
-    location === "/details/today"
+    location === "/today"
       ? todaysExpenses
-      : location === "/details/week"
+      : location === "/week"
       ? lastSevenDaysExpenses
       : thisMonthsExpenses;
 
   console.log(expenses);
-  return (
-    <div>
-      <div>Details</div>
-      <div>
-        <Link to="/details/today">today</Link>
-        <Link to="/details/week">week</Link>
-        <Link to="/details/month">month</Link>
-      </div>
 
-      <div>
-        {expenses.map((expense, i) => (
-          <DetailsTable key={i} expense={expense} />
-        ))}
+  const classes = `px-10 rounded`;
+  return (
+    <div className="flex items-center justify-center min-h-screen ">
+      <div className="bg-red-200 w-8/12 min-h-[500px] pt-5 rounded-xl p-5">
+        <div className="text-3xl font-semibold text-center mb-5">Details</div>
+        <div className="flex justify-evenly text-lg font-semibold mb-3">
+          <Link
+            to="/today"
+            className={`${
+              location === "/today" && "text-white bg-rose-600"
+            } ${classes}`}
+          >
+            Today
+          </Link>
+          <Link
+            to="/week"
+            className={`${
+              location === "/week" && "text-white bg-rose-600"
+            } ${classes}`}
+          >
+            This Week
+          </Link>
+          <Link
+            to="/month"
+            className={`${
+              location === "/month" && "text-white bg-rose-600"
+            } ${classes}`}
+          >
+            This Month
+          </Link>
+        </div>
+
+        <table className="w-full">
+          <thead>
+            <tr className="bg-rose-100 border border-blue-500">
+              <th className="border border-rose-600 border-collapse w-[10%]">
+                No
+              </th>
+              <th className="border border-rose-600 border-collapse w-[15%]">
+                Category
+              </th>
+              <th className="border border-rose-600 border-collapse ">Note</th>
+              <th className="border border-rose-600 border-collapse w-[15%]">
+                Date
+              </th>
+              <th className="border border-rose-600 border-collapse w-[15%]">
+                Time
+              </th>
+              <th className="border border-rose-600 border-collapse w-[15%]">
+                Amount
+              </th>
+            </tr>
+          </thead>
+        </table>
+        <div>
+          {expenses.map((expense, i) => (
+            <DetailsTable key={i} expense={expense} />
+          ))}
+        </div>
       </div>
     </div>
   );

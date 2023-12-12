@@ -8,7 +8,7 @@ const Routes = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/details/:dates",
+    path: "/:dates",
     element: <Details />,
   },
 ]);

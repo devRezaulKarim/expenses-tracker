@@ -25,7 +25,7 @@ export default function ExpensesTable({ dataFor, expenses, route }) {
         </h1>
         {totalExpense > 0 && (
           <Link
-            to={`/details/${route}`}
+            to={`/${route}`}
             className="text-lg font-semibold	hover:text-white duration-200	hover:bg-rose-500 px-1 rounded"
           >
             Details
