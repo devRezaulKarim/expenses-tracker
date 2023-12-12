@@ -22,7 +22,7 @@ const month = String(new Date().getMonth() + 1).padStart(2, "0");
 
 export const getFromLocal = () => {
   const savedJSONdata = localStorage.getItem("entries");
-  const savedData = savedJSONdata ? JSON.parse(savedJSONdata) : initialValue;
+  const savedData = savedJSONdata ? JSON.parse(savedJSONdata) : initialValue; //trying to get saved data from local.
   const dataFilteredByDate = [...savedData.allExpenses].reduce(
     (mainObj, curr) => {
       mainObj.allExpenses.push(curr);
