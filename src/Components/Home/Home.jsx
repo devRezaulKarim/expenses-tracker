@@ -4,26 +4,37 @@ import { useContext } from "react";
 import { ExpenseContext } from "../../Utilities/Context";
 
 export default function Home() {
-  const { todaysExpenses, lastSevenDaysExpenses, thisMonthsExpenses } =
-    useContext(ExpenseContext);
+  const {
+    allExpenses,
+    todaysExpenses,
+    lastSevenDaysExpenses,
+    thisMonthsExpenses,
+  } = useContext(ExpenseContext);
   return (
-    <div className="grid grid-cols-1	lg:grid-cols-2	gap-8">
+    <div className="grid grid-cols-1	lg:grid-cols-2	gap-4">
       <GetInput />
-      <ExpensesTable
-        dataFor="Today&#39;s Expenses"
-        route="today"
-        expenses={todaysExpenses}
-      />
-      <ExpensesTable
-        dataFor="Last Seven day&#39;s Expenses"
-        route="week"
-        expenses={lastSevenDaysExpenses}
-      />
-      <ExpensesTable
-        dataFor="This Month&#39;s Expenses"
-        route="month"
-        expenses={thisMonthsExpenses}
-      />
+      {allExpenses.length > 0 && (
+        <ExpensesTable
+          dataFor="Today&#39;s Expenses"
+          route="today"
+          expenses={todaysExpenses}
+        />
+      )}
+
+      {allExpenses.length > 0 && (
+        <ExpensesTable
+          dataFor="Last Seven day&#39;s Expenses"
+          route="week"
+          expenses={lastSevenDaysExpenses}
+        />
+      )}
+      {allExpenses.length > 0 && (
+        <ExpensesTable
+          dataFor="This Month&#39;s Expenses"
+          route="month"
+          expenses={thisMonthsExpenses}
+        />
+      )}
     </div>
   );
 }

@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 /* eslint-disable react/prop-types */
 export default function ExpensesTable({ dataFor, expenses, route }) {
   const categorizedTotalExpenses = expenses.reduce((acc, cur) => {
@@ -18,18 +16,18 @@ export default function ExpensesTable({ dataFor, expenses, route }) {
     return acc;
   }, 0);
   return (
-    <div className="w-80	bg-rose-100	 mx-auto p-2 rounded-lg md:w-3/4 md:text-3xl lg:w-80 lg:text-base	">
+    <div className="w-80	bg-rose-100	 mx-auto p-2 rounded-lg md:w-3/4 md:text-3xl lg:w-full lg:text-base	">
       <div className="flex justify-between	">
         <h1 className="text-xl font-semibold text-red-600 md:text-3xl lg:text-base	">
           {dataFor}
         </h1>
         {totalExpense > 0 && (
-          <Link
-            to={`/${route}`}
+          <a
+            href={`/${route}`}
             className="text-lg font-semibold	hover:text-white duration-200	hover:bg-rose-500 px-1 rounded"
           >
             Details
-          </Link>
+          </a>
         )}
       </div>
       <h1 className="my-2 md:my-5">

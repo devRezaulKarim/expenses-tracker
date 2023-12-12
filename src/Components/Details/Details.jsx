@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ExpenseContext } from "../../Utilities/Context";
 import DetailsTable from "./DetailsTable";
+import { IoMdCloseCircleOutline } from "react-icons/io";
 
 export default function Details() {
   const { todaysExpenses, lastSevenDaysExpenses, thisMonthsExpenses } =
@@ -21,8 +22,13 @@ export default function Details() {
   const thClasses = "border border-rose-600 border-collapse";
   return (
     <div className="flex items-center justify-center min-h-screen ">
-      <div className="bg-red-200 w-8/12 min-h-[500px] pt-5 rounded-xl p-5">
+      <div className="bg-red-200 w-8/12 min-h-[500px] pt-5 rounded-xl p-5 relative">
         <div className="text-3xl font-semibold text-center mb-5">Details</div>
+
+        <Link to="/" className="absolute top-2	right-2 ">
+          <IoMdCloseCircleOutline className="text-4xl text-rose-800 duration-300 hover:rotate-180" />
+        </Link>
+
         <div className="flex justify-evenly text-lg font-semibold">
           <Link
             to="/today"
