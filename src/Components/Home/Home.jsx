@@ -1,6 +1,4 @@
 import GetInput from "../GetInput/GetInput";
-// import LastSevenDays from "../LastSevenDays/LastSevenDays";
-// import ThisMonth from "../ThisMonth/ThisMonth";
 import ExpensesTable from "../ExpensesTable/ExpensesTable";
 import { useContext } from "react";
 import { ExpenseContext } from "../../Utilities/Context";
