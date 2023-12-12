@@ -21,8 +21,6 @@ export default function GetInput() {
     "Other",
   ];
 
-  console.log(categories);
-
   //submit handler
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -59,6 +57,7 @@ export default function GetInput() {
             Amount:
           </label>
           <input
+            id="amount"
             ref={amount}
             className="w-3/4 px-2"
             type="text"
@@ -67,8 +66,14 @@ export default function GetInput() {
         </div>
 
         <div className="flex justify-evenly gap-2">
-          <select ref={category} className="" name="name" id="">
-            <option value="none" selected disabled hidden>
+          <select
+            defaultValue="none"
+            ref={category}
+            className=""
+            name="name"
+            id=""
+          >
+            <option value="none" disabled hidden>
               Select an Option
             </option>
             {categories.map((category, i) => (
@@ -76,9 +81,6 @@ export default function GetInput() {
                 {category}
               </option>
             ))}
-            {/* <option value="Food">Food</option>
-            <option value="Travel">Travel</option>
-            <option value="Life Style">Life Style</option> */}
           </select>
           <input className="bg-red-500 w-full" type="submit" value="Done" />
         </div>
