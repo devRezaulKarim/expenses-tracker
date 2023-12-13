@@ -16,7 +16,7 @@ export default function ExpensesTable({ dataFor, expenses, route }) {
     return acc;
   }, 0);
   return (
-    <div className="w-80 h-fit		bg-rose-100	 mx-auto p-2 rounded-lg md:w-3/4 md:text-3xl lg:w-full lg:text-base	">
+    <div className="w-80 h-fit	bg-rose-100	 mx-auto p-2 rounded-lg md:w-3/4 md:text-3xl lg:w-full lg:text-base	">
       <div className="flex justify-between	">
         <h1 className="text-xl font-semibold text-red-600 md:text-3xl lg:text-base	">
           {dataFor}

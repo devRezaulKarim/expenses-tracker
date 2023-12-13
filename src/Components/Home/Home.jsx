@@ -10,8 +10,10 @@ export default function Home() {
     lastSevenDaysExpenses,
     thisMonthsExpenses,
   } = useContext(ExpenseContext);
+
+  const classes = "grid grid-cols-1	lg:grid-cols-2	gap-4";
   return (
-    <div className="grid grid-cols-1	lg:grid-cols-2	gap-4">
+    <div className={allExpenses.length > 0 && classes}>
       <GetInput />
       {allExpenses.length > 0 && (
         <ExpensesTable
