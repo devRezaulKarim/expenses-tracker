@@ -16,7 +16,7 @@ export default function ExpensesTable({ dataFor, expenses, route }) {
     return acc;
   }, 0);
   return (
-    <div className="w-80	bg-rose-100	 mx-auto p-2 rounded-lg md:w-3/4 md:text-3xl lg:w-full lg:text-base	">
+    <div className="w-80 h-fit		bg-rose-100	 mx-auto p-2 rounded-lg md:w-3/4 md:text-3xl lg:w-full lg:text-base	">
       <div className="flex justify-between	">
         <h1 className="text-xl font-semibold text-red-600 md:text-3xl lg:text-base	">
           {dataFor}
@@ -24,7 +24,7 @@ export default function ExpensesTable({ dataFor, expenses, route }) {
         {totalExpense > 0 && (
           <a
             href={`/${route}`}
-            className="text-lg font-semibold	hover:text-white duration-200	hover:bg-rose-500 px-1 rounded"
+            className="font-medium	text-white duration-200	bg-rose-700 px-2 rounded-lg hover:bg-rose-400 hover:text-black"
           >
             Details
           </a>
@@ -37,21 +37,25 @@ export default function ExpensesTable({ dataFor, expenses, route }) {
         </span>
       </h1>
       <div>
-        <table className="w-full">
-          <thead>
-            <tr className="border border-black">
-              <th className="w-1/2 border border-black bg-purple-200 ">
-                Category
-              </th>
-              <th className="w-1/2 border border-black bg-blue-200">Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            {categorizedTotalExpensesAsArray.map((entry, i) => (
-              <TableRow key={i} entry={entry} />
-            ))}
-          </tbody>
-        </table>
+        {totalExpense > 0 && (
+          <table className="w-full">
+            <thead>
+              <tr className="border border-black">
+                <th className="w-1/2 border border-black bg-purple-200 ">
+                  Category
+                </th>
+                <th className="w-1/2 border border-black bg-blue-200">
+                  Amount
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {categorizedTotalExpensesAsArray.map((entry, i) => (
+                <TableRow key={i} entry={entry} />
+              ))}
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );

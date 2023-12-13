@@ -15,13 +15,13 @@ export default function Details() {
       ? lastSevenDaysExpenses
       : thisMonthsExpenses;
 
-  console.log(expenses);
-
-  const classes = "px-10 pb-3 pt-1 rounded-t-lg";
-  const activeClasses = "bg-rose-100";
+  const classes = "px-10 pb-3 pt-1 rounded-t-2xl relative";
+  const activeClasses =
+    "bg-rose-100 after:content-[''] after:absolute after:w-[30px] after:h-[30px] after:bottom-0 after:right-[-30px] after:rounded-b-3xl after:shadow-[-15px_5px_0_0_#ffe4e6] before:content-[''] before:absolute before:w-[30px] before:h-[30px] before:bottom-0 before:left-[-30px] before:rounded-b-3xl before:shadow-[15px_5px_0_0_#ffe4e6]";
   const thClasses = "border border-rose-600 border-collapse";
+
   return (
-    <div className="flex items-center justify-center min-h-screen ">
+    <div className="flex justify-center min-h-screen ">
       <div className="bg-red-200 w-8/12 min-h-[500px] pt-5 rounded-xl p-5 relative">
         <div className="text-3xl font-semibold text-center mb-5">Details</div>
 
