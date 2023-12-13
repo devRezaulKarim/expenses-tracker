@@ -104,7 +104,7 @@ export default function GetInput() {
           ></textarea>
         </div>
         <input
-          className="bg-red-500 text-white rounded w-full text-xl"
+          className="bg-red-700 text-white rounded w-full text-xl cursor-pointer	hover:shadow-md hover:shadow-gray-400	duration-100 hover:-translate-y-0.5"
           type="submit"
           value="Done"
         />

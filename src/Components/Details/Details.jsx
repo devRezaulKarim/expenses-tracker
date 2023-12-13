@@ -15,9 +15,10 @@ export default function Details() {
       ? lastSevenDaysExpenses
       : thisMonthsExpenses;
 
-  const classes = "px-10 pb-3 pt-1 rounded-t-2xl relative";
+  const classes = "px-10 pb-3 pt-1 rounded-t-2xl relative duration-100";
   const activeClasses =
     "bg-rose-100 after:content-[''] after:absolute after:w-[30px] after:h-[30px] after:bottom-0 after:right-[-30px] after:rounded-b-3xl after:shadow-[-15px_5px_0_0_#ffe4e6] before:content-[''] before:absolute before:w-[30px] before:h-[30px] before:bottom-0 before:left-[-30px] before:rounded-b-3xl before:shadow-[15px_5px_0_0_#ffe4e6]";
+
   const thClasses = "border border-rose-600 border-collapse";
 
   return (
@@ -32,19 +33,25 @@ export default function Details() {
         <div className="flex justify-evenly text-lg font-semibold">
           <Link
             to="/today"
-            className={`${location === "/today" && activeClasses} ${classes}`}
+            className={`${
+              location === "/today" ? activeClasses : "hover:text-white"
+            } ${classes}`}
           >
             Today
           </Link>
           <Link
             to="/week"
-            className={`${location === "/week" && activeClasses} ${classes}`}
+            className={`${
+              location === "/week" ? activeClasses : "hover:text-white"
+            } ${classes}`}
           >
             This Week
           </Link>
           <Link
             to="/month"
-            className={`${location === "/month" && activeClasses} ${classes}`}
+            className={`${
+              location === "/month" ? activeClasses : "hover:text-white"
+            } ${classes}`}
           >
             This Month
           </Link>
