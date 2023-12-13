@@ -24,7 +24,7 @@ export default function ExpensesTable({ dataFor, expenses, route }) {
         {totalExpense > 0 && (
           <a
             href={`/${route}`}
-            className="font-medium	text-white duration-100	bg-rose-700 px-2 rounded-lg hover:bg-rose-400 hover:text-black hover:-translate-y-0.5"
+            className="font-medium	text-white duration-200	bg-rose-700 px-2 rounded-lg hover:bg-rose-400 hover:text-black hover:-translate-y-0.5"
           >
             Details
           </a>
